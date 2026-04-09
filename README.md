@@ -2,14 +2,14 @@
 Indonesia Food Price Prediction (WFP Dataset)
 Proyek ini bertujuan untuk menganalisis dan memprediksi harga komoditas pangan di berbagai pasar di Indonesia menggunakan data historis dari World Food Programme (WFP). Proyek ini mencakup alur kerja data science lengkap, mulai dari pembersihan data hingga evaluasi model menggunakan algoritma Random Forest.
 
-📊 Dataset Overview
+-Dataset Overview
 Dataset yang digunakan adalah wfp_food_prices_idn.csv yang berisi informasi:
 Waktu: Tanggal pengambilan data (tahun dan bulan).
 Lokasi: Provinsi (admin1), Kota/Kabupaten (admin2), dan Nama Pasar.
 Komoditas: Kategori pangan (misal: sereal, daging) dan nama barang (misal: beras, telur).
 Harga: Harga dalam mata uang lokal (IDR) dan USD.
 
-🛠️ Alur Kerja (Pipeline)
+-Alur Kerja (Pipeline)
 1. Preprocessing & Data Cleaning
 Menghapus baris metadata (header ganda).
 Mengonversi tipe data date ke format datetime.
@@ -34,7 +34,7 @@ Metrik Performa:
 MAE (Mean Absolute Error): Mengukur rata-rata kesalahan absolut dalam prediksi harga.
 R² Score: Mengukur sejauh mana model dapat menjelaskan varians data.
 
-📈 Hasil Prediksi
+-Hasil Prediksi
 Berdasarkan eksperimen terakhir, model menunjukkan performa yang sangat tinggi:
 MAE: ~894.58 (Rata-rata selisih prediksi dengan harga asli).
 R² Score: ~0.9958 (Akurasi model sangat mendekati sempurna).
