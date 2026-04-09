@@ -1,40 +1,89 @@
-# tugas_data_mining
-Indonesia Food Price Prediction (WFP Dataset)
-Proyek ini bertujuan untuk menganalisis dan memprediksi harga komoditas pangan di berbagai pasar di Indonesia menggunakan data historis dari World Food Programme (WFP). Proyek ini mencakup alur kerja data science lengkap, mulai dari pembersihan data hingga evaluasi model menggunakan algoritma Random Forest.
+# Indonesia Food Price Analysis & Clustering
 
--Dataset Overview
-Dataset yang digunakan adalah wfp_food_prices_idn.csv yang berisi informasi:
-Waktu: Tanggal pengambilan data (tahun dan bulan).
-Lokasi: Provinsi (admin1), Kota/Kabupaten (admin2), dan Nama Pasar.
-Komoditas: Kategori pangan (misal: sereal, daging) dan nama barang (misal: beras, telur).
-Harga: Harga dalam mata uang lokal (IDR) dan USD.
+This project analyzes food price data in Indonesia using data preprocessing, visualization, and clustering techniques.
 
--Alur Kerja (Pipeline)
-1. Preprocessing & Data Cleaning
-Menghapus baris metadata (header ganda).
-Mengonversi tipe data date ke format datetime.
-Menangani missing values dan data duplikat untuk memastikan integritas model.
-Mengonversi kolom target price menjadi tipe numerik.
+The goal is to identify patterns and group similar price behaviors using unsupervised learning.
 
-2. Feature Engineering & Selection
-Ekstraksi Waktu: Mengambil fitur year dan month dari kolom tanggal.
-Seleksi Fitur: Memilih fitur relevan seperti admin1, market, category, dan commodity sebagai prediktor.
+---
 
-4. Data Transformation
-Label Encoding: Mengubah data kategorikal (nama pasar, lokasi, jenis barang) menjadi format numerik agar dapat diproses oleh algoritma Machine Learning.
+## Project Workflow
 
-5. Analisis & Visualisasi
-Matriks Korelasi: Melihat hubungan antar fitur.
-Distribusi Harga: Memahami persebaran harga komoditas.
-Trend Analisis: Melihat fluktuasi rata-rata harga berdasarkan bulan.
+### 1. Data Loading
 
-5. Modeling & Evaluasi
-Menggunakan algoritma Random Forest Regressor dengan pembagian data 80% pelatihan dan 20% pengujian.
-Metrik Performa:
-MAE (Mean Absolute Error): Mengukur rata-rata kesalahan absolut dalam prediksi harga.
-R² Score: Mengukur sejauh mana model dapat menjelaskan varians data.
+* Dataset loaded from Google Drive
+* Initial inspection using Pandas
 
--Hasil Prediksi
-Berdasarkan eksperimen terakhir, model menunjukkan performa yang sangat tinggi:
-MAE: ~894.58 (Rata-rata selisih prediksi dengan harga asli).
-R² Score: ~0.9958 (Akurasi model sangat mendekati sempurna).
+### 2. Data Cleaning
+
+* Removed invalid date values
+* Converted date column to datetime format
+* Converted price to numeric
+* Removed missing values and duplicates
+
+### 3. Data Transformation
+
+* Extracted year and month from date
+* Prepared time-based features
+
+### 4. Feature Selection
+
+Selected relevant features:
+
+* year, month
+* location (admin1, market)
+* category, commodity
+* price
+
+### 5. Encoding
+
+* Applied Label Encoding to categorical variables
+
+### 6. Data Visualization
+
+* Correlation heatmap
+* Price distribution histogram
+* Monthly price trend analysis
+
+### 7. Clustering (K-Means)
+
+* Applied K-Means clustering (k=3)
+* Grouped data based on price and features
+* Visualized clusters
+* Analyzed average price per cluster
+
+---
+
+## Key Insights
+
+* Food prices show seasonal trends across months
+* Certain commodities have distinct pricing patterns
+* Clustering helps group similar market behaviors
+* Price distribution is not uniform across regions
+
+---
+
+## Technologies Used
+
+Python
+Pandas
+NumPy
+Matplotlib
+Seaborn
+Scikit-learn
+
+---
+
+## Output
+
+* Clustered dataset saved as CSV
+* Visual insights from heatmap and trends
+* Grouped price behavior using K-Means
+
+---
+
+## Future Improvements
+
+* Use advanced clustering (DBSCAN, Hierarchical)
+* Add geospatial analysis
+* Build prediction model for price forecasting
+* Create dashboard for real-time monitoring
