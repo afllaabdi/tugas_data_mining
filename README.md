@@ -87,3 +87,5 @@ Scikit-learn
 * Add geospatial analysis
 * Build prediction model for price forecasting
 * Create dashboard for real-time monitoring
+
+progres tugas per minggu ,single and 
